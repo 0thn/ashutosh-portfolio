@@ -97,3 +97,23 @@ img {
 
 /* Add any other custom non-Tailwind styles here */
 
+.hero-sturmi-text {
+    position: absolute; /* Position relative to the #hero section */
+    bottom: 20px;       /* Distance from the bottom of the hero section */
+    left: 20px;         /* Distance from the left of the hero section */
+    color: #a0aec0;     /* Light gray text color */
+    font-size: 0.75rem; /* Small font size */
+    font-family: 'Inter', sans-serif;
+    z-index: 5;
+    opacity: 0.7;
+    padding: 5px;
+}
+
+/* Optional: Adjust for smaller screens if needed */
+@media (max-width: 640px) { /* sm breakpoint in Tailwind */
+    .hero-sturmi-text {
+        bottom: 10px;
+        left: 10px;
+        font-size: 0.65rem; /* Even smaller on very small screens */
+    }
+}

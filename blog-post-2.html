@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Windows Scripting with Batch Files - Ashutosh Panigrahi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <header class="bg-gray-900/80 backdrop-blur-md sticky top-0 z-50 shadow-lg shadow-black/30">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white hover:text-cyan-400 transition duration-300 text-glow-cyan">Ashutosh Panigrahi</a>
+            <a href="index.html#blog" class="text-lime-400 hover:text-lime-300 transition duration-300 px-2 py-1 rounded hover:bg-gray-700/50">
+                <i class="fas fa-arrow-left mr-2"></i>Back to Blog
+            </a>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 md:py-20">
+        <article class="max-w-3xl mx-auto bg-gray-800/50 p-8 md:p-12 rounded-xl shadow-lg border border-gray-700">
+            <h1 class="text-4xl md:text-5xl font-bold text-center mb-8 text-glow-lime text-lime-400">
+                An Introduction to Windows Scripting with Batch Files
+            </h1>
+
+            <div class="text-center text-gray-400 mb-8">
+                <span>By Ashutosh Panigrahi</span> |
+                <span>Published: May 24, 2025</span>
+            </div>
+
+            <img src="https://placehold.co/800x400/111827/84cc16?text=Windows+Scripting" alt="Windows Scripting" class="w-full h-auto object-cover rounded-lg mb-8 shadow-md">
+
+            <div class="prose prose-invert max-w-none text-gray-300 text-lg space-y-6">
+                <p>
+                    Scripting is a way in which one can automate tasks that occur repeatedly through the use of files containing executable commands. Scripting is different from traditional programming languages in that it is normally interpreted rather than compiled, meaning scripts are executed line by line without prior compilation.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-glow-cyan text-cyan-400 mt-8 mb-4">Windows Scripting Fundamentals</h2>
+                <p>
+                    On Windows, scripting is primarily reliant on Batch files (.BAT) and PowerShell. Batch files are executable scripts that make use of Windows system commands to run a variety of diverse tasks such as file management, system configuration, and program execution.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-glow-pink text-pink-400 mt-8 mb-4">What is a BAT file?</h2>
+                <p>
+                    A Batch (BAT) file is a text file that contains a series of commands, which are executed in sequence by the Windows command interpreter (cmd.exe). It is utilized for the automation of system administration tasks such as cleanup of temporary files, user management, or system monitoring.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-glow-lime text-lime-400 mt-8 mb-4">Batch Script Sample for Windows Cleanup</h2>
+                <p>
+                    The following is a script that deletes temporary and unwanted files in Windows while ensuring it is being run with administrator privileges:
+                </p>
+                <pre class="bg-gray-900 p-4 rounded-md overflow-x-auto text-sm"><code class="language-batch">@echo off
+title Windows Cleanup Script
+cls
+
+rem Check for administrator privileges
+net session >nul 2>&1
+if %errorlevel% neq 0 (
+    echo You must run this script as an Administrator.
+    echo Right-click and select 'Run as Administrator'.
+    pause >nul
+    exit /b
+)
+
+echo Cleaning up temporary files...
+
+rem Delete temporary files without deleting main folders
+for %%F in ("%WinDir%\Temp\*.*" "%WinDir%\Prefetch\*.*" "%Temp%\*.*" "%AppData%\Temp\*.*") do (
+    del /s /f /q "%%F" >nul 2>&1
+)
+
+rem Delete unnecessary folders
+for %%D in ("%SYSTEMDRIVE%\AMD" "%SYSTEMDRIVE%\NVIDIA" "%SYSTEMDRIVE%\INTEL") do (
+    if exist "%%D" rd /s /q "%%D"
+)
+
+echo Cleanup completed successfully!
+pause >nul
+exit</code></pre>
+                <p>
+                    Note: The original script used "Vérifier les privilèges administrateur" and "Supprimer les fichiers temporaires..." which are in French. I've translated these comments to English for broader understanding, but the core commands remain the same.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-glow-cyan text-cyan-400 mt-8 mb-4">Conclusion</h2>
+                <p>
+                    Windows scripting is a powerful method for automating system administration and streamlining system operations. Batch files are a simple and intuitive method of controlling files, configuring the system, or executing repetitive commands. By mastering this skill, one can simplify Windows administration and reduce the time spent on performing manual operations.
+                </p>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="index.html#blog" class="text-lime-400 hover:text-lime-300 font-semibold transition duration-300 flex items-center justify-center gap-1.5 group text-sm">
+                    <i class="fas fa-arrow-left transform group-hover:-translate-x-1 transition-transform"></i>
+                    Back to All Posts
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-black text-center py-8 mt-16 border-t border-gray-800">
+        <p class="text-gray-500 text-sm">
+            &copy; <span id="current-year-blog-ws"></span> Made with
+            <span class="text-pink-500 animate-pulse text-xl scale-110">&hearts;</span> By Ashutosh Panigrahi
+        </p>
+    </footer>
+
+    <script>
+        const currentYearBlogSpanWS = document.getElementById('current-year-blog-ws');
+        if (currentYearBlogSpanWS) {
+            currentYearBlogSpanWS.textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>

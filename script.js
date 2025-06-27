@@ -1,63 +1,104 @@
-// Wait for the DOM to be fully loaded before running scripts
 document.addEventListener('DOMContentLoaded', function() {
+    // --- Particle Animation ---
+    const canvas = document.getElementById('particle-canvas');
+    // Ensure canvas exists before proceeding
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    let particles = [];
 
-    // --- Set current year in footer ---
-    const currentYearSpan = document.getElementById('current-year');
-    if (currentYearSpan) {
-        currentYearSpan.textContent = new Date().getFullYear();
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+
+    class Particle {
+        constructor(x, y, directionX, directionY, size, color) {
+            this.x = x;
+            this.y = y;
+            this.directionX = directionX;
+            this.directionY = directionY;
+            this.size = size;
+            this.color = color;
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+        }
+        update() {
+            if (this.x > canvas.width || this.x < 0) {
+                this.directionX = -this.directionX;
+            }
+            if (this.y > canvas.height || this.y < 0) {
+                this.directionY = -this.directionY;
+            }
+            this.x += this.directionX;
+            this.y += this.directionY;
+            this.draw();
+        }
     }
 
-    // --- Mobile Menu Toggle ---
-    const menuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
+    function initParticles() {
+        particles = [];
+        const numberOfParticles = (canvas.height * canvas.width) / 9000;
+        for (let i = 0; i < numberOfParticles; i++) {
+            const size = Math.random() * 1.5 + 0.5;
+            const x = Math.random() * (innerWidth - size * 2) + size;
+            const y = Math.random() * (innerHeight - size * 2) + size;
+            const directionX = (Math.random() * 0.4) - 0.2;
+            const directionY = (Math.random() * 0.4) - 0.2;
+            const color = 'rgba(224, 224, 224, 0.5)';
+            particles.push(new Particle(x, y, directionX, directionY, size, color));
+        }
+    }
 
-    if (menuButton && mobileMenu) {
-        const navLinks = mobileMenu.querySelectorAll('a'); // Get all links in mobile menu
+    function animateParticles() {
+        requestAnimationFrame(animateParticles);
+        ctx.clearRect(0, 0, innerWidth, innerHeight);
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+        }
+    }
 
-        // Toggle menu visibility on button click
-        menuButton.addEventListener('click', (event) => {
-            event.stopPropagation(); // Prevent click from immediately closing menu via document listener
-            mobileMenu.classList.toggle('hidden');
-            // Optional: Add ARIA attribute toggling for accessibility
-            const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
-            menuButton.setAttribute('aria-expanded', !isExpanded);
-            mobileMenu.setAttribute('aria-hidden', isExpanded); // Opposite of button's expanded state
-        });
+    initParticles();
+    animateParticles();
+    window.addEventListener('resize', () => {
+        resizeCanvas();
+        initParticles();
+    });
 
-        // Close mobile menu when a navigation link inside it is clicked
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuButton.setAttribute('aria-expanded', 'false');
-                mobileMenu.setAttribute('aria-hidden', 'true');
-            });
-        });
-
-        // Close mobile menu if clicked outside of the menu or the button
-        document.addEventListener('click', (event) => {
-            const isClickInsideMenu = mobileMenu.contains(event.target);
-            const isClickOnButton = menuButton.contains(event.target);
-
-            // Only close if the menu is not hidden and the click was outside both elements
-            if (!isClickInsideMenu && !isClickOnButton && !mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-                menuButton.setAttribute('aria-expanded', 'false');
-                mobileMenu.setAttribute('aria-hidden', 'true');
+    // --- Header Scroll Effect ---
+    const header = document.getElementById('header');
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-gray-900/80', 'backdrop-blur-sm', 'shadow-lg');
+            } else {
+                header.classList.remove('bg-gray-900/80', 'backdrop-blur-sm', 'shadow-lg');
             }
         });
+    }
+    
+    // --- Mobile Menu Toggle ---
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const closeMenuButton = document.getElementById('close-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
 
-         // Add initial ARIA attributes for accessibility
-         menuButton.setAttribute('aria-expanded', 'false');
-         menuButton.setAttribute('aria-controls', 'mobile-menu'); // Link button to menu
-         mobileMenu.setAttribute('aria-hidden', 'true'); // Hide menu from screen readers initially
-
-    } else {
-        console.warn("Mobile menu button or menu element not found.");
+    if (mobileMenuButton && closeMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+        closeMenuButton.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
     }
 
-    // --- Add more JavaScript functionality below if needed ---
-    // Example: Smooth scroll (though html class="scroll-smooth" handles basic cases)
-    // Example: Animations on scroll (using Intersection Observer API)
-    // Example: Tagline typing effect
-
-}); // End DOMContentLoaded
+    // --- Set current year in footer ---
+    const yearSpan = document.getElementById('current-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+});

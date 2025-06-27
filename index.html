@@ -4,186 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ashutosh Panigrahi</title>
+    <meta name="description" content="Ashutosh Panigrahi's personal portfolio. A Linux Enthusiast, CyberSecurity professional, Web Developer, and Gamer.">
+    <meta name="keywords" content="Ashutosh Panigrahi, Portfolio, CyberSecurity, Web Developer, Linux, Privacy">
+    
+    <!-- Tailwind CSS for rapid UI development -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="bg-gray-900 text-gray-200">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <header class="bg-gray-900/80 backdrop-blur-md sticky top-0 z-50 shadow-lg shadow-black/30">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+
+    <!-- Animated Background -->
+    <div class="background-container">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+    
+    <!-- Canvas for particle animation -->
+    <canvas id="particle-canvas" class="fixed top-0 left-0 w-full h-full z-[-1]"></canvas>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300" id="header">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-white hover:text-cyan-400 transition duration-300 text-glow-cyan">Ashutosh Panigrahi</a>
+            <a href="#" class="text-2xl font-bold text-white hover:text-cyan-400 transition duration-300 text-glow-cyan">Ashutosh Panigrahi</a>
             <div class="hidden md:flex space-x-8">
-                <a href="index.html#about" class="hover:text-lime-400 transition duration-300 px-2 py-1 rounded hover:bg-gray-700/50">About</a>
-                <a href="index.html#blog" class="hover:text-lime-400 transition duration-300 px-2 py-1 rounded hover:bg-gray-700/50">Blog</a>
-                <a href="index.html#skills" class="hover:text-lime-400 transition duration-300 px-2 py-1 rounded hover:bg-gray-700/50">Skills</a>
-                <a href="index.html#contact" class="hover:text-lime-400 transition duration-300 px-2 py-1 rounded hover:bg-gray-700/50">Contact</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition duration-300">About</a>
+                <a href="#blog" class="text-gray-300 hover:text-white transition duration-300">Blog</a>
+                <a href="#skills" class="text-gray-300 hover:text-white transition duration-300">Skills</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contact</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden focus:outline-none text-gray-300 hover:text-white p-2 rounded hover:bg-gray-700/50">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <i class="fas fa-bars text-2xl"></i>
             </button>
         </nav>
-        <div id="mobile-menu" class="md:hidden hidden bg-gray-800/90 backdrop-blur-sm p-4 space-y-2 absolute w-full shadow-lg">
-            <a href="index.html#about" class="block hover:text-lime-400 transition duration-300 px-3 py-2 rounded hover:bg-gray-700">About</a>
-            <a href="index.html#blog" class="block hover:text-lime-400 transition duration-300 px-3 py-2 rounded hover:bg-gray-700">Blog</a>
-            <a href="index.html#skills" class="block hover:text-lime-400 transition duration-300 px-3 py-2 rounded hover:bg-gray-700">Skills</a>
-            <a href="index.html#contact" class="block hover:text-lime-400 transition duration-300 px-3 py-2 rounded hover:bg-gray-700">Contact</a>
-        </div>
     </header>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-gray-900/90 backdrop-blur-sm z-50">
+        <div class="flex justify-end p-6">
+            <button id="close-menu-button" class="text-white">
+                <i class="fas fa-times text-3xl"></i>
+            </button>
+        </div>
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#about" class="text-2xl text-gray-300 hover:text-white transition duration-300 mobile-link">About</a>
+            <a href="#blog" class="text-2xl text-gray-300 hover:text-white transition duration-300 mobile-link">Blog</a>
+            <a href="#skills" class="text-2xl text-gray-300 hover:text-white transition duration-300 mobile-link">Skills</a>
+            <a href="#contact" class="text-2xl text-gray-300 hover:text-white transition duration-300 mobile-link">Contact</a>
+        </div>
+    </div>
 
-    <section id="hero" class="min-h-screen flex items-center justify-center text-center bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden px-4 py-16">
-        <div class="absolute inset-0 z-0 opacity-5">
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center justify-center text-center px-4">
+            <div class="max-w-4xl">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white uppercase tracking-tighter mb-4">
+                    Ashutosh <span class="text-glow-cyan text-cyan-400">Panigrahi</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-lime-400 max-w-3xl mx-auto text-glow-lime">
+                    Linux Enthusiast | CyberSecurity | Web Developer | Gamer
+                </p>
             </div>
-        <div class="relative z-10">
-            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-4 text-white uppercase tracking-tighter drop-shadow-lg">
-                Ashutosh <span class="text-glow-cyan text-cyan-400">Panigrahi</span>
-            </h1>
-            <p class="text-xl md:text-2xl lg:text-3xl text-lime-400 mb-10 font-semibold text-glow-lime" id="tagline">
-                Linux Enthusiast | CyberSecurity | Web Developer | Gamer    </p>
+        </section>
+        
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-32 container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-pink-400 text-glow-pink">About Me</h2>
+            <div class="glass-card flex flex-col md:flex-row items-center gap-12 md:gap-16 p-8 md:p-12 rounded-2xl">
+                <div class="md:w-1/3 flex-shrink-0 flex justify-center">
+                    <img src="https://placehold.co/400x400/1f2937/a78bfa?text=Ashutosh" alt="Ashutosh Panigrahi" class="rounded-full w-56 h-56 md:w-72 md:h-72 object-cover border-4 border-lime-500 shadow-lg">
+                </div>
+                <div class="md:w-2/3 text-lg text-gray-300 space-y-5 text-center md:text-left">
+                    <p>Hi! I’m ASHUTOSH 👋 Welcome to my corner of the internet.</p>
+                    <p>Months ago I started my privacy journey after discovering how invasive companies are and how much spyware we use in our everyday lives. I made it my goal to become as private as possible.</p>
+                    <p>I believe in freedom. Freedom of speech, freedom of ideas, freedom of communication, and freedom of transacting. Those things fundamentally require privacy.</p>
+                </div>
             </div>
         </section>
 
-    <section id="about" class="py-20 md:py-32 container mx-auto px-6">
-        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-glow-pink text-pink-400">About Me</h2>
-        <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16 bg-gray-800/50 p-8 md:p-12 rounded-xl shadow-lg border border-gray-700">
-            <div class="md:w-1/3 flex-shrink-0 flex justify-center">
-                <img src="https://placehold.co/400x400/1f2937/84cc16?text=Ashutosh" alt="Ashutosh Panigrahi" class="rounded-full w-56 h-56 md:w-72 md:h-72 object-cover border-4 border-lime-500 shadow-lg neon-glow-lime">
-            </div>
-            <div class="md:w-2/3 text-lg text-gray-300 space-y-5 text-center md:text-left">
-                <p>
-                    Hi! I’m ASHUTOSH 👋
-                    Welcome to my corner of the internet.
-                </p>
-                 <p>
-                    Months ago I started my privacy journey after discovering how invasive companies are and how much spyware we use in our everyday lives. I made it my goal to become as private as possible.
-                </p>
-                 <p>
-                    I believe in freedom. Freedom of speech, freedom of ideas, freedom of communication, and freedom of transacting. Those things fundamentally require privacy.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <section id="blog" class="py-20 md:py-32 container mx-auto px-6">
-        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-glow-lime text-lime-400">Latest Thoughts</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-            <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl border border-gray-700 hover:border-lime-500 transition-all duration-300 transform hover:scale-[1.03] hover:shadow-lime-500/20 flex flex-col">
-                <img src="https://placehold.co/600x350/111827/84cc16?text=Windows+Scripting" alt="Windows Scripting Blog Post Image" class="w-full h-48 object-cover">
-                <div class="p-6 flex flex-col flex-grow">
-                    <span class="text-xs text-gray-400 mb-1">May 24, 2025</span>
-                    <h3 class="text-2xl font-bold mb-3 text-white">Windows Cleanup Script</h3>
-                    <p class="text-gray-400 mb-5 flex-grow text-sm">
-                    Automating System Maintenance with Batch Files...    
-                    </p>
-                    <div class="mt-auto pt-4 border-t border-gray-700">
-                        <a href="blog-post-2.html" class="text-lime-400 hover:text-lime-300 font-semibold transition duration-300 flex items-center gap-1.5 group text-sm">
-                            Read More <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
-                        </a>
+        <!-- Blog Section -->
+        <section id="blog" class="py-20 md:py-32 container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-lime-400 text-glow-lime">Latest Thoughts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Blog Post 1 -->
+                <div class="glass-card rounded-2xl text-center flex flex-col">
+                    <img src="https://placehold.co/600x350/111827/06b6d4?text=Digital+Privacy" alt="Digital Privacy Blog Post Image" class="w-full h-48 object-cover rounded-t-2xl">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs text-gray-400 mb-1">May 15, 2025</span>
+                        <h3 class="text-2xl font-bold text-white mb-3">The Importance of Privacy in 2025</h3>
+                        <p class="text-gray-400 mb-5 flex-grow">Discussing the current landscape of digital privacy and why it's more crucial than ever...</p>
+                        <a href="blog-post-1.html" class="text-cyan-400 hover:text-cyan-300 font-semibold transition duration-300">Read More &rarr;</a>
+                    </div>
+                </div>
+                <!-- Blog Post 2 -->
+                <div class="glass-card rounded-2xl text-center flex flex-col">
+                    <img src="https://placehold.co/600x350/111827/84cc16?text=Windows+Scripting" alt="Windows Scripting Blog Post Image" class="w-full h-48 object-cover rounded-t-2xl">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs text-gray-400 mb-1">May 24, 2025</span>
+                        <h3 class="text-2xl font-bold text-white mb-3">Windows Cleanup Script</h3>
+                        <p class="text-gray-400 mb-5 flex-grow">Automating System Maintenance with Batch Files...</p>
+                        <a href="blog-post-2.html" class="text-lime-400 hover:text-lime-300 font-semibold transition duration-300">Read More &rarr;</a>
                     </div>
                 </div>
             </div>
-
-            <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl border border-gray-700 hover:border-cyan-500 transition-all duration-300 transform hover:scale-[1.03] hover:shadow-cyan-500/20 flex flex-col">
-                <img src="https://placehold.co/600x350/111827/06b6d4?text=Digital+Privacy" alt="Digital Privacy Blog Post Image" class="w-full h-48 object-cover">
-                <div class="p-6 flex flex-col flex-grow">
-                    <span class="text-xs text-gray-400 mb-1">May 15, 2025</span>
-                    <h3 class="text-2xl font-bold mb-3 text-white">The Importance of Privacy in 2025</h3>
-                    <p class="text-gray-400 mb-5 flex-grow text-sm">
-                        Discussing the current landscape of digital privacy and why it's more crucial than ever...
-                    </p>
-                    <div class="mt-auto pt-4 border-t border-gray-700">
-                        <a href="blog-post-1.html" class="text-cyan-400 hover:text-cyan-300 font-semibold transition duration-300 flex items-center gap-1.5 group text-sm">
-                            Read More <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
-                        </a>
-                    </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 md:py-32 container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-cyan-400 text-glow-cyan">Tech Arsenal</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-6 max-w-6xl mx-auto">
+                <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center justify-center">
+                    <i class="fab fa-html5 text-5xl text-lime-400 mb-3"></i>
+                    <h3 class="text-md font-bold text-white">HTML5</h3>
+                </div>
+                <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center justify-center">
+                    <i class="fab fa-js-square text-5xl text-pink-400 mb-3"></i>
+                    <h3 class="text-md font-bold text-white">JavaScript</h3>
+                </div>
+                <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center justify-center">
+                    <i class="fab fa-python text-5xl text-cyan-400 mb-3"></i>
+                    <h3 class="text-md font-bold text-white">Python</h3>
+                </div>
+                <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center justify-center">
+                    <i class="fas fa-database text-5xl text-lime-400 mb-3"></i>
+                    <h3 class="text-md font-bold text-white">Databases</h3>
+                </div>
+                <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center justify-center">
+                    <i class="fab fa-git-alt text-5xl text-pink-400 mb-3"></i>
+                    <h3 class="text-md font-bold text-white">Git & GitHub</h3>
+                </div>
+                <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center justify-center">
+                    <i class="fas fa-terminal text-5xl text-cyan-400 mb-3"></i>
+                    <h3 class="text-md font-bold text-white">CLI Tools</h3>
+                </div>
+                 <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center justify-center">
+                    <i class="fas fa-cogs text-5xl text-lime-400 mb-3"></i>
+                    <h3 class="text-md font-bold text-white">API Design</h3>
                 </div>
             </div>
-    </section>
+        </section>
 
-    <div class="section-divider"></div>
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32 text-center container mx-auto px-6">
+            <div class="max-w-3xl mx-auto glass-card p-10 rounded-2xl">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 text-pink-400 text-glow-pink">Let's Connect</h2>
+                <p class="text-gray-300 mb-8">Interested in collaborating, have a question, or just want to say hi? My inbox is always open. Let's build something great together!</p>
+                <a href="mailto:ashutoshpanigrahi015@gmail.com" class="inline-block bg-pink-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-pink-500 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-pink-600/30 mb-10">
+                    <i class="fas fa-envelope mr-2"></i> Send Email
+                </a>
+                <p class="text-gray-400 mb-5 text-lg">Find me on:</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://github.com/0thn" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="text-gray-400 hover:text-white transition duration-300 text-3xl transform hover:scale-110">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://wa.me/254771575375" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Chat" class="text-gray-400 hover:text-white transition duration-300 text-3xl transform hover:scale-110">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://t.me/bashbender" target="_blank" rel="noopener noreferrer" aria-label="Telegram Profile" class="text-gray-400 hover:text-white transition duration-300 text-3xl transform hover:scale-110">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://signal.me/#eu/-Zj2GQSl_91ipIo-cE1x7xZ7JIkR04UFPC5oAYQWzxA3VRfC5PxCgYpP3IbzqpH-" target="_blank" rel="noopener noreferrer" aria-label="Signal Profile" class="text-gray-400 hover:text-white transition duration-300 text-3xl transform hover:scale-110">
+                        <i class="fa-brands fa-signal-messenger"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <section id="skills" class="py-20 md:py-32 container mx-auto px-6">
-        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-glow-cyan text-cyan-400">Tech Arsenal</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center mb-12 max-w-5xl mx-auto">
-            <div class="group flex flex-col items-center p-6 bg-gray-800 rounded-lg shadow-md hover:bg-gray-700/70 transition duration-300 transform hover:-translate-y-2 border border-transparent hover:border-lime-500 cursor-pointer">
-                <i class="fab fa-html5 text-6xl text-lime-400 mb-4 transition-transform duration-300 group-hover:scale-110"></i>
-                <h3 class="text-lg font-semibold text-white mt-auto">HTML5</h3>
-            </div>
-            <div class="group flex flex-col items-center p-6 bg-gray-800 rounded-lg shadow-md hover:bg-gray-700/70 transition duration-300 transform hover:-translate-y-2 border border-transparent hover:border-pink-500 cursor-pointer">
-                <i class="fab fa-js-square text-6xl text-pink-500 mb-4 transition-transform duration-300 group-hover:scale-110"></i>
-                <h3 class="text-lg font-semibold text-white mt-auto">JavaScript</h3>
-            </div>
-            <div class="group flex flex-col items-center p-6 bg-gray-800 rounded-lg shadow-md hover:bg-gray-700/70 transition duration-300 transform hover:-translate-y-2 border border-transparent hover:border-pink-500 cursor-pointer">
-                <i class="fab fa-python text-6xl text-pink-500 mb-4 transition-transform duration-300 group-hover:scale-110"></i>
-                <h3 class="text-lg font-semibold text-white mt-auto">Python</h3>
-            </div>
-            <div class="group flex flex-col items-center p-6 bg-gray-800 rounded-lg shadow-md hover:bg-gray-700/70 transition duration-300 transform hover:-translate-y-2 border border-transparent hover:border-lime-500 cursor-pointer">
-                <i class="fas fa-database text-6xl text-lime-400 mb-4 transition-transform duration-300 group-hover:scale-110"></i>
-                <h3 class="text-lg font-semibold text-white mt-auto">Databases</h3>
-            </div>
-        </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-center max-w-4xl mx-auto">
-            <div class="group flex flex-col items-center p-6 bg-gray-800 rounded-lg shadow-md hover:bg-gray-700/70 transition duration-300 transform hover:-translate-y-2 border border-transparent hover:border-cyan-500 cursor-pointer">
-                <i class="fab fa-git-alt text-6xl text-cyan-400 mb-4 transition-transform duration-300 group-hover:scale-110"></i>
-                <h3 class="text-lg font-semibold text-white mt-auto">Git & GitHub</h3>
-            </div>
-            <div class="group flex flex-col items-center p-6 bg-gray-800 rounded-lg shadow-md hover:bg-gray-700/70 transition duration-300 transform hover:-translate-y-2 border border-transparent hover:border-pink-500 cursor-pointer">
-                <i class="fas fa-terminal text-6xl text-pink-500 mb-4 transition-transform duration-300 group-hover:scale-110"></i>
-                <h3 class="text-lg font-semibold text-white mt-auto">CLI Tools</h3>
-            </div>
-            <div class="group flex flex-col items-center p-6 bg-gray-800 rounded-lg shadow-md hover:bg-gray-700/70 transition duration-300 transform hover:-translate-y-2 border border-transparent hover:border-lime-500 cursor-pointer">
-                <i class="fas fa-cogs text-6xl text-lime-400 mb-4 transition-transform duration-300 group-hover:scale-110"></i>
-                <h3 class="text-lg font-semibold text-white mt-auto">API Design</h3>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <section id="contact" class="py-20 md:py-32 container mx-auto px-6">
-        <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-glow-pink text-pink-400">Let's Connect</h2>
-        <div class="max-w-3xl mx-auto text-center bg-gray-800/50 p-8 md:p-12 rounded-xl shadow-lg border border-gray-700">
-            <p class="text-lg text-gray-300 mb-8">
-                Interested in collaborating, have a question, or just want to say hi? My inbox is always open. Let's build something great together!
+    <!-- Footer -->
+    <footer class="text-center py-8 mt-16 border-t border-gray-800/50">
+        <div class="container mx-auto px-6">
+            <p class="text-gray-500 text-sm">
+                &copy; <span id="current-year"></span> Made with <span class="text-pink-500">&hearts;</span> by Ashutosh Panigrahi
             </p>
-            <a href="mailto:ashutoshpanigrahi015@gmail.com" class="inline-block bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-pink-500 transition duration-300 neon-glow-pink mb-12">
-                <i class="fas fa-envelope mr-2"></i> Send Email
-            </a>
-
-            <p class="text-gray-400 mb-5 text-lg">Find me on:</p>
-            <div class="flex justify-center space-x-8">
-                <a href="https://github.com/0thn" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="text-gray-400 hover:text-cyan-400 transition duration-300 text-4xl transform hover:scale-125 hover:-translate-y-1">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://wa.me/254771575375" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Chat" class="text-gray-400 hover:text-green-400 transition duration-300 text-4xl transform hover:scale-125 hover:-translate-y-1">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://t.me/bashbender" target="_blank" rel="noopener noreferrer" aria-label="Telegram Profile" class="text-gray-400 hover:text-blue-400 transition duration-300 text-4xl transform hover:scale-125 hover:-translate-y-1">
-                    <i class="fab fa-telegram"></i>
-                </a>
-                <a href="https://signal.me/#eu/-Zj2GQSl_91ipIo-cE1x7xZ7JIkR04UFPC5oAYQWzxA3VRfC5PxCgYpP3IbzqpH-" target="_blank" rel="noopener noreferrer" aria-label="Signal Profile" class="text-gray-400 hover:text-indigo-500 transition duration-300 text-4xl transform hover:scale-125 hover:-translate-y-1">
-                    <i class="fa-brands fa-signal-messenger"></i>
-                </a>
-            </div>
         </div>
-    </section>
-
-    <footer class="bg-black text-center py-8 mt-16 border-t border-gray-800">
-        <p class="text-gray-500 text-sm">
-            &copy; <span id="current-year"></span> Made with
-            <span class="text-pink-500 animate-pulse text-xl scale-110">&hearts;</span> By Ashutosh Panigrahi
-        </p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <!-- Custom Script -->
+    <script src="script.js"></script>
 
 </body>
 </html>

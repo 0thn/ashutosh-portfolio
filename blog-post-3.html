@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Git and Github - Ashutosh Panigrahi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <header class="bg-gray-900/80 backdrop-blur-md sticky top-0 z-50 shadow-lg shadow-black/30">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white hover:text-cyan-400 transition duration-300 text-glow-cyan">Ashutosh Panigrahi</a>
+            <a href="index.html#blog" class="text-lime-400 hover:text-lime-300 transition duration-300 px-2 py-1 rounded hover:bg-gray-700/50">
+                <i class="fas fa-arrow-left mr-2"></i>Back to Blog
+            </a>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 md:py-20">
+        <article class="max-w-3xl mx-auto bg-gray-800/50 p-8 md:p-12 rounded-xl shadow-lg border border-gray-700">
+            <h1 class="text-4xl md:text-5xl font-bold text-center mb-8 text-glow-pink text-pink-400">
+                Understanding Git and Github
+            </h1>
+
+            <div class="text-center text-gray-400 mb-8">
+                <span>By Ashutosh Panigrahi</span> |
+                <span>Published: June 29, 2025</span>
+            </div>
+
+            <img src="https://placehold.co/800x400/111827/d946ef?text=Git+and+GitHub" alt="Git and GitHub" class="w-full h-auto object-cover rounded-lg mb-8 shadow-md">
+
+            <div class="prose prose-invert max-w-none text-gray-300 text-lg space-y-6">
+                <h2 class="text-2xl font-semibold text-glow-lime text-lime-400 mt-8 mb-4">What is Git?</h2>
+                <p>
+                    Git is a version control system which is maintained on your local system. Git gives us a record for ongoing programming versions. It can be used completely exclusive of any cloud-hosting service i.e. we don’t even need internet to access git.
+                </p>
+
+                <h3 class="text-xl font-semibold text-glow-cyan text-cyan-400 mt-6 mb-3">Version Control System</h3>
+                <p>
+                    It is a program to keep track of the changes in projects, by tracking or logging the files changes over time. A version control system allows us to review, restore earlier versions and even branching and merging or code.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-glow-lime text-lime-400 mt-8 mb-4">What Is GitHub?</h2>
+                <p>
+                    GitHub is a cloud-based hosting service that lets us manage Git repositories. It’s an online database that allows you to keep track of and share your Git version control projects outside of your local computer. Other Git repository hosting services also exist: Eg:- GitLab, BitBucket, and SourceForge
+                </p>
+                <p>
+                    GitHub just takes things a little bit further than Git, offering more functionality and resources, as well as a place online to store and collaborate on projects. And because GitHub is cloud-based, an individual’s Git repositories can be remotely accessed by any authorized person, from any computer, anywhere in the world.
+                </p>
+                <p>
+                    Through GitHub, one can share code with others, giving them the power to make revisions or edits on your various Git branches. This makes it possible for entire teams to coordinate together on single projects in real-time. As changes are introduced, new branches are created, allowing the team to continue to revise the code without overwriting each other's work.
+                </p>
+                
+                <h2 class="text-2xl font-semibold text-glow-pink text-pink-400 mt-8 mb-4">Why Use a Version Control System?</h2>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><strong>Collaboration:</strong> Easily work with a team on the same project.</li>
+                    <li><strong>Storing Versions:</strong> Keep a history of your project's changes.</li>
+                    <li><strong>Restoring Previous Versions:</strong> Revert back to earlier versions of your code if something goes wrong.</li>
+                </ul>
+
+                <h2 class="text-2xl font-semibold text-glow-cyan text-cyan-400 mt-8 mb-4">Conclusion</h2>
+                <p>
+                   Git and GitHub are essential tools for modern software development, providing robust version control and a collaborative platform for projects of any scale.
+                </p>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="index.html#blog" class="text-pink-400 hover:text-pink-300 font-semibold transition duration-300 flex items-center justify-center gap-1.5 group text-sm">
+                    <i class="fas fa-arrow-left transform group-hover:-translate-x-1 transition-transform"></i>
+                    Back to All Posts
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-black text-center py-8 mt-16 border-t border-gray-800">
+        <p class="text-gray-500 text-sm">
+            &copy; <span id="current-year-blog3"></span> Made with
+            <span class="text-pink-500 animate-pulse text-xl scale-110">&hearts;</span> By Ashutosh Panigrahi
+        </p>
+    </footer>
+
+    <script>
+        const currentYearBlogSpan3 = document.getElementById('current-year-blog3');
+        if (currentYearBlogSpan3) {
+            currentYearBlogSpan3.textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>

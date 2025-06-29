@@ -7,33 +7,26 @@
     <meta name="description" content="Ashutosh Panigrahi's personal portfolio. A Linux Enthusiast, CyberSecurity professional, Web Developer, and Gamer.">
     <meta name="keywords" content="Ashutosh Panigrahi, Portfolio, CyberSecurity, Web Developer, Linux, Privacy">
     
-    <!-- Tailwind CSS for rapid UI development -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="antialiased">
 
-    <!-- Animated Background -->
     <div class="background-container">
         <div class="blob blob1"></div>
         <div class="blob blob2"></div>
         <div class="blob blob3"></div>
     </div>
     
-    <!-- Canvas for particle animation -->
     <canvas id="particle-canvas" class="fixed top-0 left-0 w-full h-full z-[-1]"></canvas>
 
-    <!-- Header -->
     <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300" id="header">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-white hover:text-cyan-400 transition duration-300 text-glow-cyan">Ashutosh Panigrahi</a>
@@ -49,7 +42,6 @@
         </nav>
     </header>
     
-    <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-gray-900/90 backdrop-blur-sm z-50">
         <div class="flex justify-end p-6">
             <button id="close-menu-button" class="text-white">
@@ -65,7 +57,6 @@
     </div>
 
     <main class="relative z-10">
-        <!-- Hero Section -->
         <section id="hero" class="min-h-screen flex items-center justify-center text-center px-4">
             <div class="max-w-4xl">
                 <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white uppercase tracking-tighter mb-4">
@@ -77,7 +68,6 @@
             </div>
         </section>
         
-        <!-- About Section -->
         <section id="about" class="py-20 md:py-32 container mx-auto px-6">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-pink-400 text-glow-pink">About Me</h2>
             <div class="glass-card p-8 md:p-12 rounded-2xl">
@@ -89,34 +79,39 @@
             </div>
         </section>
 
-        <!-- Blog Section -->
         <section id="blog" class="py-20 md:py-32 container mx-auto px-6">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-lime-400 text-glow-lime">Latest Thoughts</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- Blog Post 1 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <div class="glass-card rounded-2xl text-center flex flex-col">
                     <img src="https://placehold.co/600x350/111827/06b6d4?text=Digital+Privacy" alt="Digital Privacy Blog Post Image" class="w-full h-48 object-cover rounded-t-2xl">
                     <div class="p-6 flex flex-col flex-grow">
                         <span class="text-xs text-gray-400 mb-1">May 15, 2025</span>
                         <h3 class="text-2xl font-bold text-white mb-3">The Importance of Privacy in 2025</h3>
                         <p class="text-gray-400 mb-5 flex-grow">Discussing the current landscape of digital privacy and why it's more crucial than ever...</p>
-                        <a href="blog-post-1.html" class="text-cyan-400 hover:text-cyan-300 font-semibold transition duration-300">Read More &rarr;</a>
+                        <a href="blog-post-1.html" class="text-cyan-400 hover:text-cyan-300 font-semibold transition duration-300 mt-auto">Read More &rarr;</a>
                     </div>
                 </div>
-                <!-- Blog Post 2 -->
                 <div class="glass-card rounded-2xl text-center flex flex-col">
                     <img src="https://placehold.co/600x350/111827/84cc16?text=Windows+Scripting" alt="Windows Scripting Blog Post Image" class="w-full h-48 object-cover rounded-t-2xl">
                     <div class="p-6 flex flex-col flex-grow">
                         <span class="text-xs text-gray-400 mb-1">May 24, 2025</span>
                         <h3 class="text-2xl font-bold text-white mb-3">Windows Cleanup Script</h3>
                         <p class="text-gray-400 mb-5 flex-grow">Automating System Maintenance with Batch Files...</p>
-                        <a href="blog-post-2.html" class="text-lime-400 hover:text-lime-300 font-semibold transition duration-300">Read More &rarr;</a>
+                        <a href="blog-post-2.html" class="text-lime-400 hover:text-lime-300 font-semibold transition duration-300 mt-auto">Read More &rarr;</a>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl text-center flex flex-col">
+                    <img src="https://placehold.co/600x350/111827/d946ef?text=Git+and+GitHub" alt="Git and GitHub Blog Post Image" class="w-full h-48 object-cover rounded-t-2xl">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs text-gray-400 mb-1">June 29, 2025</span>
+                        <h3 class="text-2xl font-bold text-white mb-3">Understanding Git and Github</h3>
+                        <p class="text-gray-400 mb-5 flex-grow">A primer on version control with Git and the collaborative power of GitHub...</p>
+                        <a href="blog-post-3.html" class="text-pink-400 hover:text-pink-300 font-semibold transition duration-300 mt-auto">Read More &rarr;</a>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- Skills Section -->
         <section id="skills" class="py-20 md:py-32 container mx-auto px-6">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-cyan-400 text-glow-cyan">Tech Arsenal</h2>
             <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-6 max-w-6xl mx-auto">
@@ -151,7 +146,6 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="py-20 md:py-32 text-center container mx-auto px-6">
             <div class="max-w-3xl mx-auto glass-card p-10 rounded-2xl">
                 <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 text-pink-400 text-glow-pink">Let's Connect</h2>
@@ -178,7 +172,6 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="text-center py-8 mt-16 border-t border-gray-800/50">
         <div class="container mx-auto px-6">
             <p class="text-gray-500 text-sm">
@@ -187,7 +180,6 @@
         </div>
     </footer>
 
-    <!-- Custom Script -->
     <script src="script.js"></script>
 
 </body>

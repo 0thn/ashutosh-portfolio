@@ -1,7 +1,7 @@
 /* Custom CSS for the modern, minimalist theme */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #03030a;
+    background-color: #000000;
     color: #e0e0e0;
     overflow-x: hidden;
 }
@@ -19,7 +19,7 @@ h1, h2, h3 {
     height: 100%;
     z-index: -2;
     overflow: hidden;
-    background: radial-gradient(ellipse at bottom, #0d1220 0%, #02040a 100%);
+    background: radial-gradient(ellipse at bottom, #0d1220 0%, #000000 100%);
 }
 
 .blob {
@@ -34,7 +34,7 @@ h1, h2, h3 {
     height: 400px;
     top: -10%; 
     left: -10%; 
-    background: linear-gradient(180deg, rgba(6, 182, 212, 0.2) 0%, rgba(217, 70, 239, 0.2) 100%);
+    background: linear-gradient(180deg, rgba(6, 182, 212, 0.1) 0%, rgba(217, 70, 239, 0.1) 100%);
     animation-delay: 0s; 
 }
 .blob2 { 
@@ -42,7 +42,7 @@ h1, h2, h3 {
     height: 500px;
     top: 20%; 
     right: -15%; 
-    background: linear-gradient(180deg, rgba(132, 204, 22, 0.25) 0%, rgba(217, 70, 239, 0.15) 100%);
+    background: linear-gradient(180deg, rgba(132, 204, 22, 0.15) 0%, rgba(217, 70, 239, 0.1) 100%);
     animation-delay: 5s; 
 }
 .blob3 { 
@@ -50,7 +50,7 @@ h1, h2, h3 {
     height: 450px;
     bottom: -20%; 
     left: 10%; 
-    background: linear-gradient(180deg, rgba(217, 70, 239, 0.2) 0%, rgba(6, 182, 212, 0.25) 100%);
+    background: linear-gradient(180deg, rgba(217, 70, 239, 0.1) 0%, rgba(6, 182, 212, 0.15) 100%);
     animation-delay: 10s;
 }
 
@@ -61,7 +61,7 @@ h1, h2, h3 {
 
 /* Glass-morphism effect for containers */
 .glass-card {
-    background: rgba(10, 15, 30, 0.7);
+    background: rgba(5, 10, 20, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -76,18 +76,18 @@ h1, h2, h3 {
 
 /* Text Glow Effects */
 .text-glow-cyan {
-    text-shadow: 0 0 8px rgba(6, 182, 212, 0.7);
+    text-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
 }
 .text-glow-lime {
-    text-shadow: 0 0 8px rgba(132, 204, 22, 0.7);
+    text-shadow: 0 0 8px rgba(132, 204, 22, 0.5);
 }
 .text-glow-pink {
-    text-shadow: 0 0 8px rgba(217, 70, 239, 0.7);
+    text-shadow: 0 0 8px rgba(217, 70, 239, 0.5);
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #03030a; }
+::-webkit-scrollbar-track { background: #000000; }
 ::-webkit-scrollbar-thumb {
     background: linear-gradient(45deg, #06b6d4, #84cc16, #d946ef);
     border-radius: 4px;
